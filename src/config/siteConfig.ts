@@ -1,3 +1,5 @@
+import { socialConfig } from "./socials";
+
 export const siteConfig = {
   name: "Jezberry Hotel",
   legalName: "Jezberry Hotel Nigeria Ltd",
@@ -46,6 +48,8 @@ export const siteConfig = {
     searchUrl: "https://www.google.com/maps/search/?api=1&query=Jezberry+Hotel+Kubwa+Abuja",
     embedQuery: "Jezberry+Hotel+Kubwa+Abuja",
   },
+
+  socials: socialConfig.links,
 
   seo: {
     title: "Jezberry Hotel | Kubwa, Abuja | Dream & Do It",

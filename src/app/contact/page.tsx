@@ -16,6 +16,8 @@ import {
 import { SectionHeader } from "@/components/SectionHeader";
 import { MapEmbed } from "@/components/MapEmbed";
 import { siteConfig } from "@/config/siteConfig";
+import { socialConfig } from "@/config/socials";
+import { SocialIcon } from "@/components/icons/SocialIcons";
 import { useBooking } from "@/context/BookingContext";
 import { fadeInUp, staggerContainer, fadeInLeft, fadeInRight } from "@/lib/motion";
 
@@ -374,6 +376,27 @@ export default function ContactPage() {
                 <Calendar className="w-3.5 h-3.5" />
                 <span>Choose How to Book</span>
               </button>
+            </div>
+
+            <div className="pt-3 border-t border-forest-light/60">
+              <span className="text-[10px] uppercase tracking-luxury text-champagne block mb-2 font-semibold">
+                Follow Jezberry Hotel
+              </span>
+              <div className="flex items-center gap-2 flex-wrap">
+                {socialConfig.links.filter((l) => l.isActive).map((link) => (
+                  <a
+                    key={link.id}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={link.ariaLabel}
+                    className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-forest-surface text-ivory/80 border border-champagne/20 text-[11px] hover:text-white hover:border-champagne transition-all"
+                  >
+                    <SocialIcon platform={link.id} className="w-3.5 h-3.5" />
+                    <span>{link.name}</span>
+                  </a>
+                ))}
+              </div>
             </div>
           </motion.div>
         </div>

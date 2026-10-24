@@ -20,6 +20,7 @@ import { Hero } from "@/components/Hero";
 import { SectionHeader } from "@/components/SectionHeader";
 import { RoomCard } from "@/components/RoomCard";
 import { MapEmbed } from "@/components/MapEmbed";
+import { SocialFollowSection } from "@/components/SocialFollowSection";
 import { roomsData } from "@/config/roomsData";
 import { diningData } from "@/config/diningData";
 import { galleryData } from "@/config/galleryData";
@@ -409,7 +410,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 8. RESERVATION CALLOUT BANNER */}
+      {/* 8. SOCIAL MEDIA FOLLOW SECTION */}
+      <SocialFollowSection />
+
+      {/* 9. RESERVATION CALLOUT BANNER */}
       <section className="py-16 sm:py-20 bg-forest-deep text-ivory border-t border-champagne/20 relative overflow-hidden">
         <motion.div
           initial="hidden"

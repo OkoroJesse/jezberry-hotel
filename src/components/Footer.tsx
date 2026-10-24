@@ -5,12 +5,15 @@ import Link from "next/link";
 import { Phone, Mail, MapPin, MessageSquare, ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { siteConfig } from "@/config/siteConfig";
+import { socialConfig } from "@/config/socials";
 import { BrandLogo } from "@/components/BrandLogo";
+import { SocialIcon } from "@/components/icons/SocialIcons";
 import { useBooking } from "@/context/BookingContext";
 import { fadeInUp } from "@/lib/motion";
 
 export const Footer: React.FC = () => {
   const { openBooking } = useBooking();
+  const activeSocialLinks = socialConfig.links.filter((l) => l.isActive);
 
   return (
     <footer className="bg-forest-deep text-ivory border-t border-champagne/20 pt-12 pb-8">
@@ -21,6 +24,7 @@ export const Footer: React.FC = () => {
         variants={fadeInUp}
         className="max-w-6xl mx-auto px-4 sm:px-6"
       >
+        {/* Main 4-Column Directory Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-10 border-b border-forest-surface">
           {/* Brand Column */}
           <div className="space-y-3">
@@ -150,6 +154,42 @@ export const Footer: React.FC = () => {
                 </a>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Official Social Media Bar */}
+        <div className="py-7 border-b border-forest-surface flex flex-col md:flex-row items-center justify-between gap-5">
+          <div className="text-center md:text-left">
+            <div className="flex items-center justify-center md:justify-start gap-2 mb-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-champagne"></span>
+              <h4 className="font-serif text-xs sm:text-sm font-semibold tracking-luxury uppercase text-champagne-light">
+                {socialConfig.heading}
+              </h4>
+            </div>
+            <p className="text-[11.5px] text-ivory/70 max-w-md font-sans">
+              {socialConfig.supportingText}
+            </p>
+          </div>
+
+          <div className="flex items-center gap-2.5 sm:gap-3 flex-wrap justify-center">
+            {activeSocialLinks.map((link) => (
+              <a
+                key={link.id}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={link.ariaLabel}
+                className="group flex items-center gap-2 px-3.5 py-2 rounded-xl bg-forest-surface/90 border border-champagne/20 text-ivory/80 hover:text-white transition-all duration-300 hover:border-champagne/50 hover:bg-forest-surface hover:shadow-sm active:scale-95"
+              >
+                <span className={`transition-colors duration-200 ${link.hoverText}`}>
+                  <SocialIcon platform={link.id} className="w-4 h-4" />
+                </span>
+                <span className="text-[11.5px] font-medium text-ivory/90 group-hover:text-champagne transition-colors">
+                  {link.name}
+                </span>
+                <ArrowUpRight className="w-2.5 h-2.5 text-ivory/40 group-hover:text-champagne transition-colors" />
+              </a>
+            ))}
           </div>
         </div>
 
