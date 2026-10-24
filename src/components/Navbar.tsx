@@ -35,16 +35,16 @@ export const Navbar: React.FC = () => {
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           scrolled || !isHome
-            ? "bg-forest-deep/95 backdrop-blur-md py-2.5 shadow-sm border-b border-champagne/15"
-            : "bg-gradient-to-b from-charcoal-dark/75 via-forest-deep/30 to-transparent py-3 sm:py-3.5"
+            ? "bg-forest-deep/95 backdrop-blur-md py-3 shadow-md border-b border-champagne/15"
+            : "bg-gradient-to-b from-charcoal-dark/75 via-forest-deep/30 to-transparent py-4 sm:py-5"
         }`}
       >
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Brand Wordmark & Emblem */}
           <BrandLogo variant="light" size="md" />
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-5 xl:gap-6">
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-7">
             {siteConfig.navigation.map((item) => {
               const isActive =
                 item.href === "/"
@@ -54,10 +54,10 @@ export const Navbar: React.FC = () => {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`text-[11px] uppercase tracking-luxury font-medium transition-colors relative py-1 ${
+                  className={`text-xs uppercase tracking-luxury font-medium transition-colors relative py-1 ${
                     isActive
                       ? "text-champagne font-semibold"
-                      : "text-ivory/80 hover:text-champagne-light"
+                      : "text-ivory/85 hover:text-champagne-light"
                   }`}
                 >
                   {item.label}
@@ -74,21 +74,21 @@ export const Navbar: React.FC = () => {
           </nav>
 
           {/* Desktop Actions */}
-          <div className="hidden lg:flex items-center gap-3.5">
+          <div className="hidden lg:flex items-center gap-4">
             <a
               href={`tel:${siteConfig.contact.primaryPhoneRaw}`}
-              className="text-[11px] text-ivory/75 hover:text-champagne-light flex items-center gap-1.5 transition-colors"
+              className="text-xs text-ivory/80 hover:text-champagne-light flex items-center gap-1.5 transition-colors"
               title="Call Jezberry Hotel"
             >
-              <Phone className="w-3 h-3 text-champagne" />
+              <Phone className="w-3.5 h-3.5 text-champagne" />
               <span>{siteConfig.contact.primaryPhone}</span>
             </a>
 
             <button
               onClick={() => openBooking()}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-champagne text-forest-deep font-sans font-semibold text-[11px] tracking-wide uppercase hover:bg-champagne-light hover:shadow-gold transition-all duration-200 active:scale-95"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-champagne text-forest-deep font-sans font-semibold text-xs tracking-wide uppercase hover:bg-champagne-light hover:shadow-gold transition-all duration-200 active:scale-95"
             >
-              <Calendar className="w-3 h-3" />
+              <Calendar className="w-3.5 h-3.5" />
               <span>Book Stay</span>
             </button>
           </div>
